@@ -50,7 +50,7 @@ export const bilder = {
 export const behandlingsbilder: Record<string, Bilde> = {
   undersokelse: { src: `${base}/bilder/barn-i-stolen.webp`, alt: "Ei jente smiler i tannlegestolen mens tannlegen ser på tennene hennes.", w: 486, h: 336 },
   fylling: { src: `${base}/bilder/tannlege-i-arbeid.webp`, alt: "Tannlege med lupebriller behandler en pasient.", w: 380, h: 360 },
-  akutt: { src: `${base}/bilder/behandlingsrom.webp`, alt: "Behandlingsrom med tannlegestol, røntgenbilde på skjermen og vindu mot trær.", w: 536, h: 360 },
+  akutt: { src: `${base}/bilder/behandlingsrom.webp`, alt: "Behandlingsrom med grønn tannlegestol, røntgenbilde på skjermen og stort vindu mot trær.", w: 1200, h: 675 },
   rotfylling: { src: `${base}/bilder/utstyr.webp`, alt: "Tannlegeinstrumenter på et blått brett.", w: 425, h: 302 },
   tannbleking: { src: `${base}/bilder/tannskilt.webp`, alt: "Tannsymbol på en glassdør, med en grønn plante foran.", w: 398, h: 302 },
   implantat: { src: `${base}/bilder/tannmodell.webp`, alt: "Modell av to tenner på disken ved siden av en plante.", w: 316, h: 302 },

@@ -41,10 +41,11 @@ export default function Home() {
     <>
       {/* Topp */}
       <section className="relative overflow-hidden">
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-12 sm:pt-16 lg:grid-cols-[1fr_1.15fr]">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-12 sm:pt-16 lg:grid-cols-[1.1fr_1fr] xl:grid-cols-[1fr_1.15fr]">
           <div>
             <ApentNa />
-            <h1 className="mt-5 max-w-3xl text-[2.5rem] font-semibold text-furu-mork sm:text-[3.5rem]">
+            {/* Mindre fra lg, der kolonnen blir smal: da brytes den i to linjer i stedet for tre. */}
+            <h1 className="mt-5 max-w-3xl text-[2.5rem] font-semibold text-furu-mork sm:text-[3.5rem] lg:text-[3rem] xl:text-[3.25rem]">
               Tannlege for deg som gruer deg også
             </h1>
             <p className="mt-6 max-w-xl text-[1.1875rem] leading-relaxed">

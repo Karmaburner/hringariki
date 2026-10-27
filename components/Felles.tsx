@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { klinikk } from "@/lib/klinikk";
+import { Bolge } from "./Logo";
 
 export function Knapper({ lys = false }: { lys?: boolean }) {
   return (
@@ -79,9 +80,10 @@ export function Seksjon({ etikett, tittel, id }: { etikett: string; tittel: stri
 
 export function Avslutning() {
   return (
-    // Åpen avslutning med en linje over, ikke en farget boks rett over den mørke bunnen.
+    // Åpen avslutning med bølgelinja fra logoen over, ikke en farget boks rett over den mørke bunnen.
     <section className="mx-auto mt-28 max-w-6xl px-4">
-      <div className="glid grid gap-8 border-t-2 border-furu-mork pt-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+      <Bolge className="glid h-auto w-48 text-furu sm:w-64" />
+      <div className="glid mt-6 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
         <div>
           <Etikett>Neste steg</Etikett>
           <h2 className="mt-3 max-w-2xl text-[2.25rem] font-semibold text-furu-mork sm:text-[3rem]">

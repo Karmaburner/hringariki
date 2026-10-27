@@ -4,6 +4,7 @@ import Link from "next/link";
 import { behandlinger, behandlingsbilder, bilder, klinikk, sporsmal, team } from "@/lib/klinikk";
 import { ApentNa } from "@/components/ApentNa";
 import { BehandlingRader } from "@/components/BehandlingRader";
+import { Ringer } from "@/components/Logo";
 import { Apningstider } from "@/components/Apningstider";
 import { Avslutning, Etikett, Knapper } from "@/components/Felles";
 
@@ -90,8 +91,10 @@ export default function Home() {
       </section>
 
       {/* Akutt: den eneste mørke flaten over hele bredden, så den som har vondt finner den med en gang. */}
-      <section aria-labelledby="akutt-tittel" className="mt-28 bg-furu-mork text-krem">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:py-20 md:grid-cols-[1fr_1.1fr]">
+      <section aria-labelledby="akutt-tittel" className="relative mt-28 overflow-hidden bg-furu-mork text-krem">
+        {/* Ringene fra logopakken, ett grep i ett hjørne. Skjult på mobil, der de ville kommet bak knappene. */}
+        <Ringer className="pointer-events-none absolute -bottom-2 -right-2 hidden h-auto w-56 text-aprikos opacity-70 md:block lg:w-72" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:py-20 md:grid-cols-[1fr_1.1fr]">
           <Image
             src={akuttBilde.src}
             alt={akuttBilde.alt}

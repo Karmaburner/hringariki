@@ -14,11 +14,13 @@ export function Header() {
   return (
     <header className="border-b border-linje bg-krem">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+        {/* Logo som i logopakken: H-symbolet, navnet i serif og slagordet i store bokstaver med luft. */}
         <Link href="/" className="flex items-center gap-3 rounded-lg">
-          <Logo />
-          <span className="font-serif text-[1.25rem] font-semibold leading-tight text-furu-mork">
+          <Logo size={52} />
+          <span className="font-serif text-[1.5rem] font-semibold leading-none text-furu-mork">
             {klinikk.kortnavn}
-            <span className="block font-sans text-base font-normal text-dempet">
+            {/* Skjult under 640 px: får ikke plass på én linje ved siden av menyknappen. */}
+            <span className="mt-1.5 hidden whitespace-nowrap font-sans text-[0.9375rem] font-normal uppercase leading-none tracking-[0.14em] text-dempet sm:block">
               {klinikk.slagord}
             </span>
           </span>

@@ -75,20 +75,6 @@ p {
   }
 }
 
-/* Svak, organisk form bak toppen. Ren pynt. */
-@keyframes svev {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate(0, -10px) rotate(3deg);
-  }
-}
-.svev {
-  animation: svev 9s ease-in-out infinite;
-}
-
 details > summary {
   list-style: none;
   cursor: pointer;

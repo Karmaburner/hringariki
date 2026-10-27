@@ -57,14 +57,10 @@ export default function Home() {
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-2xl">
+            {/* Forskjøvet flate bak bildet. Ligger tydelig utenfor kanten, så den ikke ser ut til å gli inn i bildet. */}
             <div
               aria-hidden="true"
-              className="svev absolute -right-6 -top-8 h-48 w-48 rounded-[45%_55%_60%_40%/55%_45%_55%_45%] bg-furu-lys"
-            />
-            <div
-              aria-hidden="true"
-              className="svev absolute -bottom-8 -left-6 h-36 w-36 rounded-[60%_40%_45%_55%/45%_55%_45%_55%] bg-aprikos-lys"
-              style={{ animationDelay: "-4s" }}
+              className="absolute inset-0 translate-x-2 translate-y-2 rounded-[2rem] bg-furu-lys sm:translate-x-5 sm:translate-y-5"
             />
             <Image
               src={bilder.resepsjon.src}

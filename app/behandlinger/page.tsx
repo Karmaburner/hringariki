@@ -28,7 +28,7 @@ export default function Behandlinger() {
                   {b.navn}
                 </span>
                 <span>{b.ingress}</span>
-                <span className="font-bold whitespace-nowrap">{b.pris}</span>
+                <span className="tall text-[1.125rem] whitespace-nowrap">{b.pris}</span>
               </Link>
             </li>
           ))}

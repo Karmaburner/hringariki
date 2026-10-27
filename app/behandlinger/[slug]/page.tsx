@@ -40,7 +40,7 @@ export default async function Behandling({ params }: PageProps<"/behandlinger/[s
             <dl className="mt-8 grid max-w-2xl gap-4 sm:grid-cols-2">
               <div className="rounded-2xl bg-hvit p-5">
                 <dt className="text-dempet">Pris</dt>
-                <dd className="mt-1 font-serif text-[1.75rem] font-semibold">{b.pris}</dd>
+                <dd className="tall mt-1 text-[1.75rem]">{b.pris}</dd>
               </div>
               <div className="rounded-2xl bg-hvit p-5">
                 <dt className="text-dempet">Tid</dt>

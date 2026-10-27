@@ -10,7 +10,7 @@ export function Apningstider({ mork = false }: { mork?: boolean }) {
             <th scope="row" className="py-1.5 pr-4 text-left font-normal">
               {d.dag}
             </th>
-            <td className="py-1.5 text-right font-bold tabular-nums">
+            <td className={`py-1.5 text-right ${d.apner ? "tall text-[1.0625rem]" : "font-bold"}`}>
               {d.apner ? `${d.apner} til ${d.stenger}` : "Stengt"}
             </td>
           </tr>

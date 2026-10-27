@@ -44,14 +44,14 @@ export default function Priser() {
                   </Link>
                 </th>
                 <td className="py-4 pr-4 text-dempet max-sm:hidden">{b.varighet}</td>
-                <td className="py-4 text-right font-bold whitespace-nowrap">{b.pris}</td>
+                <td className="tall py-4 text-right text-[1.125rem] whitespace-nowrap">{b.pris}</td>
               </tr>
             ))}
             {ekstra.map((e) => (
               <tr key={e.navn} className="border-b border-linje">
                 <th scope="row" className="py-4 pr-4 font-normal">{e.navn}</th>
                 <td className="py-4 pr-4 max-sm:hidden" />
-                <td className="py-4 text-right font-bold whitespace-nowrap">{e.pris}</td>
+                <td className="tall py-4 text-right text-[1.125rem] whitespace-nowrap">{e.pris}</td>
               </tr>
             ))}
           </tbody>

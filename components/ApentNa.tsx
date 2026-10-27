@@ -32,7 +32,13 @@ export function ApentNa() {
         aria-hidden="true"
         className={`inline-block h-3 w-3 rounded-full ${apen ? "bg-furu" : "bg-dempet"}`}
       />
-      {apen ? `Åpent nå, til ${stenger}` : "Stengt nå. Bestill time på nett"}
+      {apen ? (
+        <span>
+          Åpent nå, til <span className="tall">{stenger}</span>
+        </span>
+      ) : (
+        "Stengt nå. Bestill time på nett"
+      )}
     </span>
   );
 }

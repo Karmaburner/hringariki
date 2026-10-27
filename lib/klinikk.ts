@@ -40,6 +40,7 @@ export type Bilde = { src: string; alt: string; w: number; h: number };
 
 // KI-genererte bilder fra Kenneth. Ligger i public/bilder.
 export const bilder = {
+  resepsjonStor: { src: `${base}/bilder/resepsjon-stor.webp`, alt: "Lys resepsjon med Hringariki-skilt på veggen, varmt lys under disken og lenestoler ved vinduet.", w: 1600, h: 900 },
   resepsjon: { src: `${base}/bilder/resepsjon.webp`, alt: "Lys resepsjon med Hringariki-skilt på veggen, varmt lys under disken og lenestoler ved vinduet.", w: 1200, h: 675 },
   teamet: { src: `${base}/bilder/teamet.webp`, alt: "Ingrid, Jonas og Mira i mørkeblå arbeidsklær, smilende i gangen på klinikken.", w: 601, h: 336 },
   venterom: { src: `${base}/bilder/venterom.webp`, alt: "Rolig venterom med lenestoler, planter og et maleri av et fjellvann.", w: 427, h: 336 },
@@ -186,6 +187,8 @@ export type Tannlege = {
   initialer: string;
   farge: string;
   portrett: string;
+  hoy: string;
+  sitat: string;
 };
 
 export const team: Tannlege[] = [
@@ -197,6 +200,8 @@ export const team: Tannlege[] = [
     initialer: "IS",
     farge: "#DDEBE6",
     portrett: `${base}/bilder/portrett-ingrid.webp`,
+    hoy: `${base}/bilder/hoy-ingrid.webp`,
+    sitat: "Jeg forteller alltid hva jeg skal gjøre, før jeg gjør det.",
   },
   {
     navn: "Jonas Aas",
@@ -206,6 +211,8 @@ export const team: Tannlege[] = [
     initialer: "JA",
     farge: "#F3DDCF",
     portrett: `${base}/bilder/portrett-jonas.webp`,
+    hoy: `${base}/bilder/hoy-jonas.webp`,
+    sitat: "Det beste jeg hører, er at det gikk bedre enn du trodde.",
   },
   {
     navn: "Mira Haugland",
@@ -215,6 +222,8 @@ export const team: Tannlege[] = [
     initialer: "MH",
     farge: "#E8E4F0",
     portrett: `${base}/bilder/portrett-mira.webp`,
+    hoy: `${base}/bilder/hoy-mira.webp`,
+    sitat: "Barna får alltid prøve stolen før vi begynner.",
   },
 ];
 

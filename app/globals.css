@@ -37,6 +37,18 @@ body {
   line-height: 1.6;
 }
 
+/* Priser og klokkeslett. Atkinson har strek gjennom null, og i fet skrift
+   leses «08:00» nesten som overstrøket. Fraunces har en vanlig null,
+   og like brede tall gjør at tidene står pent under hverandre. */
+@utility tall {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0;
+  /* Fraunces har smalt mellomrom, så «1 190» leses som «1190» uten litt ekstra luft. */
+  word-spacing: 0.12em;
+}
+
 @layer base {
   h1,
   h2,

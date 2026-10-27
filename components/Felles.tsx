@@ -23,6 +23,23 @@ export function Knapper({ lys = false }: { lys?: boolean }) {
   );
 }
 
+// Liten etikett over overskrifter: store bokstaver med luft mellom. 15 px og fet, så den er lett å lese.
+export function Etikett({
+  children,
+  som: Tag = "p",
+  id,
+}: {
+  children: React.ReactNode;
+  som?: "p" | "h2";
+  id?: string;
+}) {
+  return (
+    <Tag id={id} className="font-sans text-[0.9375rem] font-bold uppercase leading-snug tracking-[0.14em] text-furu">
+      {children}
+    </Tag>
+  );
+}
+
 export function Avslutning() {
   return (
     <section className="mx-auto mt-24 max-w-6xl px-4">

@@ -1,0 +1,12 @@
+// Tann i strek, samme form som skiltet i resepsjonen på bildene. Ren pynt ved siden av navnet.
+export const tannSti =
+  "M15 9C11 9 9 12 9 16C9 21 11.5 24 12.5 29C13.5 34 14 37 16 37C18 37 18.5 31 20 28.5C21 27 23 27 24 28.5C25.5 31 26 37 28 37C30 37 30.5 34 31.5 29C32.5 24 35 21 35 16C35 12 33 9 29 9C26 9 24.5 11 22 11C19.5 11 18 9 15 9Z";
+
+export function Logo({ size = 44 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 44 44" aria-hidden="true" focusable="false">
+      <circle cx="22" cy="22" r="22" fill="#DDEBE6" />
+      <path d={tannSti} fill="none" stroke="#1E5A53" strokeWidth="2.6" strokeLinejoin="round" />
+    </svg>
+  );
+}

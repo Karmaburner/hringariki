@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-krem: #F6F1E9;
+  --color-hvit: #FFFFFF;
+  --color-blekk: #1D2422;
+  --color-dempet: #39423F;
+  --color-furu: #1E5A53;
+  --color-furu-mork: #173F3A;
+  --color-furu-lys: #DDEBE6;
+  --color-aprikos: #A8461F;
+  --color-aprikos-mork: #8A3818;
+  --color-aprikos-lys: #F3DDCF;
+  --color-linje: #D8CFC1;
+
+  --font-sans: var(--font-atkinson), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+}
+
+/* Tekststørrelse styres av knappene A A A. Alt annet bruker rem og følger med. */
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+html[data-tekst="stor"] {
+  font-size: 112.5%;
+}
+html[data-tekst="storst"] {
+  font-size: 125%;
+}
+
+body {
+  background: var(--color-krem);
+  color: var(--color-blekk);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-aprikos);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-furu-lys);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Svak, organisk form bak toppen. Ren pynt. */
+@keyframes svev {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(0, -10px) rotate(3deg);
+  }
+}
+.svev {
+  animation: svev 9s ease-in-out infinite;
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .pil {
+  transform: rotate(45deg);
+}

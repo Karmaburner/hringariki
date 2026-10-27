@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { klinikk, type Tannlege } from "@/lib/klinikk";
+import { klinikk } from "@/lib/klinikk";
 
 export function Knapper({ lys = false }: { lys?: boolean }) {
   return (
@@ -45,6 +44,39 @@ export function Etikett({
   );
 }
 
+// Toppen på undersidene: etikett, stor overskrift og ingress, samme stil som forsiden.
+export function SideTopp({
+  etikett,
+  tittel,
+  children,
+}: {
+  etikett: string;
+  tittel: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div>
+      <Etikett>{etikett}</Etikett>
+      <h1 className="mt-3 max-w-4xl text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.02em] text-furu-mork sm:text-[3.5rem]">
+        {tittel}
+      </h1>
+      {children && <div className="mt-6 max-w-prose space-y-4 text-[1.1875rem] leading-relaxed">{children}</div>}
+    </div>
+  );
+}
+
+// Seksjonsoverskrift med etikett over, brukt på undersidene.
+export function Seksjon({ etikett, tittel, id }: { etikett: string; tittel: string; id?: string }) {
+  return (
+    <div>
+      <Etikett>{etikett}</Etikett>
+      <h2 id={id} className="mt-3 text-[2.25rem] font-semibold text-furu-mork sm:text-[2.75rem]">
+        {tittel}
+      </h2>
+    </div>
+  );
+}
+
 export function Avslutning() {
   return (
     // Åpen avslutning med en linje over, ikke en farget boks rett over den mørke bunnen.
@@ -66,21 +98,6 @@ export function Avslutning() {
         </div>
       </div>
     </section>
-  );
-}
-
-export function Portrett({ t, stor = false }: { t: Tannlege; stor?: boolean }) {
-  // Navnet står rett ved siden av, så bildet får tom alt-tekst.
-  const px = stor ? 160 : 128;
-  return (
-    <Image
-      src={t.portrett}
-      alt=""
-      width={px}
-      height={px}
-      className={`rounded-[40%_60%_55%_45%/50%_45%_55%_50%] object-cover ${stor ? "h-40 w-40" : "h-32 w-32"}`}
-      style={{ background: t.farge }}
-    />
   );
 }
 

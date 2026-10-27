@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sti } from "@/components/Felles";
+import { Etikett, Seksjon, SideTopp, Sti } from "@/components/Felles";
 
 export const metadata: Metadata = {
   title: "Om demoen",
@@ -28,7 +28,7 @@ const punkter = [
   {
     tittel: "Åpningstider ett sted",
     tekst:
-      "Tidene ligger ett sted i koden og brukes i bunnen, på kontaktsiden og i dataene Google leser. De kan ikke sprike mellom sidene.",
+      "Tidene ligger ett sted i koden og brukes på forsiden, i bunnen, på kontaktsiden og i dataene Google leser. De kan ikke sprike mellom sidene.",
     href: "/kontakt",
   },
   {
@@ -47,7 +47,7 @@ const punkter = [
     tittel: "Lett å lese for alle",
     tekst:
       "Tydelig skrift, høy kontrast og full tastaturstøtte. Siden tåler 200 % zoom og stor tekst uten at noe går i stykker, og en egen side viser hvordan man gjør teksten større. Det er lovkrav for nettsider i Norge, og det hjelper eldre pasienter.",
-    href: "/",
+    href: "/storre-tekst",
   },
   {
     tittel: "Rask på mobil",
@@ -60,34 +60,42 @@ export default function OmDemoen() {
   return (
     <>
       <Sti deler={[{ tekst: "Om demoen" }]} />
-      <div className="mx-auto max-w-5xl px-4 pt-10">
-        <h1 className="text-[2.5rem] font-semibold text-furu-mork sm:text-[3.25rem]">Om demoen</h1>
-        <div className="mt-6 max-w-prose space-y-4 text-[1.125rem]">
+      <div className="mx-auto max-w-6xl px-4 pt-10">
+        <SideTopp etikett="Om demoen" tittel="En tannklinikk som ikke finnes">
           <p>
-            Hringariki Tannklinikk finnes ikke. Siden er laget av Lilit Labs for å vise hva en tannklinikk kan få: en side som
-            roer ned engstelige pasienter og som Google forstår.
+            Hringariki Tannklinikk er laget av Lilit Labs for å vise hva en tannklinikk kan få: en side som roer ned engstelige
+            pasienter og som Google forstår.
           </p>
           <p>
-            Navn, personer, priser og adresse er oppdiktet. På en ekte side kommer all tekst, alle priser og bilder fra klinikken
-            selv.
+            Navn, personer, priser og adresse er oppdiktet, og bildene er laget med KI. På en ekte side kommer all tekst, alle
+            priser og bilder fra klinikken selv.
           </p>
-        </div>
+        </SideTopp>
 
-        <h2 className="mt-14 text-[2rem] font-semibold text-furu-mork">Dette viser siden</h2>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-          {punkter.map((p) => (
-            <li key={p.tittel} className="flex flex-col rounded-3xl bg-hvit p-7">
-              <h3 className="text-[1.375rem] font-semibold">{p.tittel}</h3>
-              <p className="mt-2 flex-1">{p.tekst}</p>
-              <Link href={p.href} className="mt-4 lenke">
-                Se det på siden
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <section aria-labelledby="viser-tittel" className="mt-24">
+          <Seksjon etikett="Åtte grep" tittel="Dette viser siden" id="viser-tittel" />
+          <ol className="mt-10 grid gap-x-12 gap-y-12 md:grid-cols-2">
+            {punkter.map((p, i) => (
+              <li key={p.tittel} className="flex flex-col border-t-2 border-furu-mork pt-5">
+                <span aria-hidden="true" className="font-serif text-[1.25rem] text-dempet">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-2 text-[1.625rem] font-semibold text-furu-mork">{p.tittel}</h3>
+                <p className="mt-2 flex-1 text-[1.0625rem]">{p.tekst}</p>
+                <Link href={p.href} className="mt-4 self-start lenke">
+                  Se det på siden
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-        <section className="mt-16 rounded-[2rem] bg-furu px-6 py-12 text-krem sm:px-12">
-          <h2 className="text-[2rem] font-semibold">Vil du ha noe lignende for din klinikk?</h2>
+        {/* Salgsdelen for Lilit Labs: den mørke flaten, som akutt på forsiden. */}
+        <section aria-labelledby="lilit-tittel" className="mt-24 rounded-2xl bg-furu-mork px-6 py-14 text-krem sm:px-12">
+          <Etikett lys>Lilit Labs</Etikett>
+          <h2 id="lilit-tittel" className="mt-3 max-w-3xl text-[2.25rem] font-semibold sm:text-[2.75rem]">
+            Vil du ha noe lignende for din klinikk?
+          </h2>
           <p className="mt-4 max-w-prose text-[1.125rem]">
             Lilit Labs er en liten nettsidebedrift i Hønefoss. Vi starter alltid med en prat om hvor pasientene deres kommer fra i
             dag.

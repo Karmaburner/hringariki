@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { bilder, team } from "@/lib/klinikk";
-import { Avslutning, Portrett, Sti } from "@/components/Felles";
+import { Avslutning, Etikett, SideTopp, Sti } from "@/components/Felles";
 
 export const metadata: Metadata = {
   title: "Tannlegene",
@@ -13,28 +13,42 @@ export default function Tannlegene() {
     <>
       <Sti deler={[{ tekst: "Tannlegene" }]} />
       <div className="mx-auto max-w-6xl px-4 pt-10">
-        <h1 className="text-[2.5rem] font-semibold text-furu-mork sm:text-[3.25rem]">Folka på Hringariki</h1>
-        <p className="mt-4 max-w-prose text-[1.125rem]">
-          Vi er tre, og det er oss du møter hver gang. Her kan du se hvem vi er før du kommer.
-        </p>
-        <Image
-          src={bilder.teamet.src}
-          alt={bilder.teamet.alt}
-          width={bilder.teamet.w}
-          height={bilder.teamet.h}
-          priority
-          sizes="(min-width: 640px) 600px, 100vw"
-          className="mt-10 w-full max-w-[601px] rounded-[2rem]"
-        />
-        <ul className="mt-12 space-y-6">
+        <div className="grid items-end gap-10 lg:grid-cols-[1fr_1fr]">
+          <SideTopp etikett="Folkene" tittel="Folka på Hringariki">
+            <p>Vi er tre, og det er oss du møter hver gang. Her kan du se hvem vi er før du kommer.</p>
+          </SideTopp>
+          <Image
+            src={bilder.teamet.src}
+            alt={bilder.teamet.alt}
+            width={bilder.teamet.w}
+            height={bilder.teamet.h}
+            priority
+            sizes="(min-width: 1024px) 560px, 100vw"
+            className="w-full max-w-[601px] rounded-2xl lg:justify-self-end"
+          />
+        </div>
+
+        {/* Én rad per person med stort portrett, adskilt med tynne linjer. */}
+        <ul className="mt-20 border-b border-linje">
           {team.map((t) => (
-            <li key={t.navn} className="grid gap-6 rounded-[2rem] bg-hvit p-7 sm:grid-cols-[auto_1fr] sm:items-center sm:p-10">
-              <Portrett t={t} stor />
+            <li key={t.navn} className="grid gap-8 border-t border-linje py-12 sm:grid-cols-[16rem_1fr] sm:gap-12">
+              <Image
+                src={t.hoy}
+                alt=""
+                width={800}
+                height={1000}
+                sizes="(min-width: 640px) 256px, 100vw"
+                className="aspect-[4/5] w-full max-w-[16rem] rounded-2xl object-cover"
+                style={{ background: t.farge }}
+              />
               <div>
-                <h2 className="text-[2rem] font-semibold text-furu-mork">{t.navn}</h2>
-                <p className="mt-1 font-bold">{t.rolle}</p>
-                <p className="text-dempet">{t.utdannet}</p>
-                <p className="mt-4 max-w-prose text-[1.125rem]">{t.om}</p>
+                <Etikett>{t.rolle}</Etikett>
+                <h2 className="mt-2 text-[2.25rem] font-semibold text-furu-mork sm:text-[2.75rem]">{t.navn}</h2>
+                <p className="mt-1 text-dempet">{t.utdannet}</p>
+                <p className="mt-5 max-w-prose text-[1.125rem]">{t.om}</p>
+                <p className="mt-6 max-w-prose border-l-2 border-aprikos pl-5 font-serif text-[1.375rem] leading-snug">
+                  «{t.sitat}»
+                </p>
               </div>
             </li>
           ))}

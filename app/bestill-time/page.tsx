@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { klinikk } from "@/lib/klinikk";
-import { Sti } from "@/components/Felles";
+import { SideTopp, Sti } from "@/components/Felles";
 import { Skjema } from "./Skjema";
 
 export const metadata: Metadata = {
@@ -13,22 +13,20 @@ export default function BestillTime() {
     <>
       <Sti deler={[{ tekst: "Bestill time" }]} />
       <div className="mx-auto max-w-3xl px-4 pt-10">
-        <h1 className="text-[2.5rem] font-semibold text-furu-mork sm:text-[3.25rem]">Bestill time</h1>
-        <p className="mt-4 max-w-prose text-[1.125rem]">
-          Fyll inn, så ringer vi deg innen neste arbeidsdag. Har du vondt nå, er det raskere å ringe{" "}
-          <a href={`tel:${klinikk.telefonLenke}`} className="font-bold underline underline-offset-4">
-            {klinikk.telefon}
-          </a>
-          .
+        <SideTopp etikett="Bestill time" tittel="Vi ringer deg tilbake">
+          <p>
+            Fyll inn, så ringer vi deg innen neste arbeidsdag. Har du vondt nå, er det raskere å ringe{" "}
+            <a href={`tel:${klinikk.telefonLenke}`} className="lenke">
+              {klinikk.telefon}
+            </a>
+            .
+          </p>
+        </SideTopp>
+        <p role="note" className="mt-10 max-w-prose border-l-2 border-furu pl-5 text-[1.0625rem]">
+          <strong>Dette er et demoskjema.</strong> Ingenting sendes eller lagres. Ikke skriv inn ekte navn, telefonnummer eller
+          helseopplysninger.
         </p>
-        <p
-          role="note"
-          className="mt-8 max-w-prose rounded-2xl border-2 border-furu bg-furu-lys p-5 text-[1.0625rem]"
-        >
-          <strong>Dette er et demoskjema.</strong> Ingenting sendes eller lagres. Ikke skriv inn ekte navn, telefonnummer
-          eller helseopplysninger.
-        </p>
-        <div className="mt-6">
+        <div className="mt-8">
           <Skjema />
         </div>
       </div>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { bilder, klinikk } from "@/lib/klinikk";
-import { Avslutning, Sti } from "@/components/Felles";
+import { Avslutning, Seksjon, SideTopp, Sti } from "@/components/Felles";
 
 export const metadata: Metadata = {
   title: "Tannlegeskrekk",
@@ -40,11 +41,8 @@ export default function Tannlegeskrekk() {
     <>
       <Sti deler={[{ tekst: "Tannlegeskrekk" }]} />
       <div className="mx-auto max-w-6xl px-4 pt-10">
-        <h1 className="max-w-3xl text-[2.5rem] font-semibold text-furu-mork sm:text-[3.25rem]">
-          Gruer du deg? Da er du i godt selskap
-        </h1>
-        <div className="mt-6 grid items-start gap-10 lg:grid-cols-[1fr_auto]">
-          <div className="max-w-prose space-y-4 text-[1.125rem]">
+        <div className="grid items-end gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <SideTopp etikett="Tannlegeskrekk" tittel="Gruer du deg? Da er du i godt selskap">
             <p>
               Mange voksne utsetter tannlegen i årevis fordi de gruer seg. Noen har hatt en vond opplevelse, andre skammer seg
               over tennene. Begge deler er vanlig, og ingen av delene er noe vi dømmer.
@@ -53,7 +51,7 @@ export default function Tannlegeskrekk() {
               Det første vi gjør, er å snakke. Ingen behandling, bare en prat om hva du gruer deg til og hva som gjør det
               lettere.
             </p>
-          </div>
+          </SideTopp>
           <Image
             src={bilder.venterom.src}
             alt={bilder.venterom.alt}
@@ -61,26 +59,43 @@ export default function Tannlegeskrekk() {
             height={bilder.venterom.h}
             priority
             sizes="(min-width: 1024px) 427px, 100vw"
-            className="w-full max-w-[427px] rounded-[2rem]"
+            className="w-full max-w-[427px] rounded-2xl lg:justify-self-end"
           />
         </div>
 
-        <h2 className="mt-16 text-[2rem] font-semibold text-furu-mork">Dette gjør vi for å gjøre det enklere</h2>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {grep.map((g) => (
-            <li key={g.tittel} className="rounded-3xl bg-hvit p-7">
-              <h3 className="text-[1.375rem] font-semibold">{g.tittel}</h3>
-              <p className="mt-2">{g.tekst}</p>
-            </li>
-          ))}
-        </ul>
+        <section aria-labelledby="grep-tittel" className="mt-24">
+          <Seksjon etikett="Seks ting vi gjør" tittel="Dette gjør det enklere" id="grep-tittel" />
+          <ol className="mt-10 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            {grep.map((g, i) => (
+              <li key={g.tittel} className="border-t-2 border-furu-mork pt-5">
+                <span aria-hidden="true" className="font-serif text-[1.25rem] text-dempet">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-2 text-[1.625rem] font-semibold text-furu-mork">{g.tittel}</h3>
+                <p className="mt-2 text-[1.0625rem]">{g.tekst}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-        <section className="mt-16 max-w-3xl rounded-3xl bg-furu-lys p-7 sm:p-10">
-          <h2 className="text-[1.75rem] font-semibold text-furu-mork">Si det når du bestiller</h2>
-          <p className="mt-3 max-w-prose text-[1.125rem]">
-            Kryss av for «Jeg gruer meg» når du bestiller på nett, eller si det på telefon. Da vet vi det før du kommer, og du
-            slipper å ta det opp selv i resepsjonen.
-          </p>
+        {/* Lys aprikos brukes bare der det handler om å grue seg. */}
+        <section aria-labelledby="si-det-tittel" className="mt-24 rounded-2xl bg-aprikos-lys px-6 py-12 sm:px-12">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+            <h2 id="si-det-tittel" className="text-[2.25rem] font-semibold text-furu-mork sm:text-[2.75rem]">
+              Si det når du bestiller
+            </h2>
+            <div>
+              <p className="max-w-prose text-[1.125rem]">
+                Kryss av for «Jeg gruer meg» når du bestiller på nett, eller si det på telefon. Da vet vi det før du kommer, og du
+                slipper å ta det opp selv i resepsjonen.
+              </p>
+              <p className="mt-4">
+                <Link href="/bestill-time" className="lenke">
+                  Bestill time
+                </Link>
+              </p>
+            </div>
+          </div>
         </section>
       </div>
       <Avslutning />

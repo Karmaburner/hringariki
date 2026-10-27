@@ -4,6 +4,7 @@ import "./globals.css";
 import { DemoStripe } from "@/components/DemoStripe";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobilKnapper } from "@/components/MobilKnapper";
 import { klinikk, apningstider } from "@/lib/klinikk";
 
 const atkinson = Atkinson_Hyperlegible({
@@ -85,6 +86,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <MobilKnapper />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

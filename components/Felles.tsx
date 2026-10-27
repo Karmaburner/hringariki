@@ -81,7 +81,7 @@ export function Avslutning() {
   return (
     // Åpen avslutning med en linje over, ikke en farget boks rett over den mørke bunnen.
     <section className="mx-auto mt-28 max-w-6xl px-4">
-      <div className="grid gap-8 border-t-2 border-furu-mork pt-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+      <div className="glid grid gap-8 border-t-2 border-furu-mork pt-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
         <div>
           <Etikett>Neste steg</Etikett>
           <h2 className="mt-3 max-w-2xl text-[2.25rem] font-semibold text-furu-mork sm:text-[3rem]">

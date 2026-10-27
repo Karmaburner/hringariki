@@ -1,3 +1,4 @@
+import { MedTall } from "@/components/MedTall";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Etikett, Seksjon, SideTopp, Sti } from "@/components/Felles";
@@ -76,12 +77,12 @@ export default function OmDemoen() {
           <Seksjon etikett="Åtte grep" tittel="Dette viser siden" id="viser-tittel" />
           <ol className="mt-10 grid gap-x-12 gap-y-12 md:grid-cols-2">
             {punkter.map((p, i) => (
-              <li key={p.tittel} className="flex flex-col border-t-2 border-furu-mork pt-5">
+              <li key={p.tittel} className="glid flex flex-col border-t-2 border-furu-mork pt-5">
                 <span aria-hidden="true" className="font-serif text-[1.25rem] text-dempet">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-2 text-[1.625rem] font-semibold text-furu-mork">{p.tittel}</h3>
-                <p className="mt-2 flex-1 text-[1.0625rem]">{p.tekst}</p>
+                <p className="mt-2 flex-1 text-[1.0625rem]"><MedTall tekst={p.tekst} /></p>
                 <Link href={p.href} className="mt-4 self-start lenke">
                   Se det på siden
                 </Link>

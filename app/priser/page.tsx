@@ -1,3 +1,4 @@
+import { MedTall } from "@/components/MedTall";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { behandlinger } from "@/lib/klinikk";
@@ -53,7 +54,7 @@ export default function Priser() {
                     {b.navn}
                   </Link>
                 </th>
-                <td className="py-5 pr-4 text-dempet max-sm:hidden">{b.varighet}</td>
+                <td className="py-5 pr-4 text-dempet max-sm:hidden"><MedTall tekst={b.varighet} /></td>
                 <td className="tall py-5 text-right text-[1.125rem] whitespace-nowrap">{b.pris}</td>
               </tr>
             ))}

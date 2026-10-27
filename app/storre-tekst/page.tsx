@@ -1,3 +1,4 @@
+import { MedTall } from "@/components/MedTall";
 import type { Metadata } from "next";
 import { Etikett, Sti } from "@/components/Felles";
 
@@ -47,7 +48,7 @@ export default function StorreTekst() {
               <h2 className="text-[1.75rem] font-semibold text-furu-mork">{h.tittel}</h2>
               <ul className="mt-3 space-y-2 text-[1.125rem]">
                 {h.steg.map((s) => (
-                  <li key={s}>{s}</li>
+                  <li key={s}><MedTall tekst={s} /></li>
                 ))}
               </ul>
             </li>

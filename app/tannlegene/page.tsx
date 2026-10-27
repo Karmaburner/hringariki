@@ -1,3 +1,4 @@
+import { MedTall } from "@/components/MedTall";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { bilder, team } from "@/lib/klinikk";
@@ -31,7 +32,7 @@ export default function Tannlegene() {
         {/* Én rad per person med stort portrett, adskilt med tynne linjer. */}
         <ul className="mt-20 border-b border-linje">
           {team.map((t) => (
-            <li key={t.navn} className="grid gap-8 border-t border-linje py-12 sm:grid-cols-[16rem_1fr] sm:gap-12">
+            <li key={t.navn} className="glid grid gap-8 border-t border-linje py-12 sm:grid-cols-[16rem_1fr] sm:gap-12">
               <Image
                 src={t.hoy}
                 alt=""
@@ -44,7 +45,7 @@ export default function Tannlegene() {
               <div>
                 <Etikett>{t.rolle}</Etikett>
                 <h2 className="mt-2 text-[2.25rem] font-semibold text-furu-mork sm:text-[2.75rem]">{t.navn}</h2>
-                <p className="mt-1 text-dempet">{t.utdannet}</p>
+                <p className="mt-1 text-dempet"><MedTall tekst={t.utdannet} /></p>
                 <p className="mt-5 max-w-prose text-[1.125rem]">{t.om}</p>
                 <p className="mt-6 max-w-prose border-l-2 border-aprikos pl-5 font-serif text-[1.375rem] leading-snug">
                   «{t.sitat}»

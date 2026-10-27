@@ -67,7 +67,7 @@ export default function Tannlegeskrekk() {
           <Seksjon etikett="Seks ting vi gjør" tittel="Dette gjør det enklere" id="grep-tittel" />
           <ol className="mt-10 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {grep.map((g, i) => (
-              <li key={g.tittel} className="border-t-2 border-furu-mork pt-5">
+              <li key={g.tittel} className="glid border-t-2 border-furu-mork pt-5">
                 <span aria-hidden="true" className="font-serif text-[1.25rem] text-dempet">
                   {String(i + 1).padStart(2, "0")}
                 </span>

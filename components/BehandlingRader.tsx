@@ -6,7 +6,7 @@ export function BehandlingRader({ liste }: { liste: Behandling[] }) {
   return (
     <ol className="border-b border-linje">
       {liste.map((b, i) => (
-        <li key={b.slug} className="border-t border-linje">
+        <li key={b.slug} className="glid border-t border-linje">
           <Link
             href={`/behandlinger/${b.slug}`}
             className="group grid gap-x-8 gap-y-2 rounded-lg py-7 md:grid-cols-[3.5rem_minmax(0,14rem)_minmax(0,1fr)_auto] md:items-baseline"

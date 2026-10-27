@@ -1,3 +1,4 @@
+import { MedTall } from "@/components/MedTall";
 import Image from "next/image";
 import Link from "next/link";
 import { behandlinger, behandlingsbilder, bilder, klinikk, sporsmal, team } from "@/lib/klinikk";
@@ -77,7 +78,7 @@ export default function Home() {
         </Etikett>
         <ul className="mt-8 grid gap-x-10 gap-y-12 md:grid-cols-3">
           {tryggeSvar.map((t) => (
-            <li key={t.s} className="flex flex-col border-t-2 border-furu-mork pt-6">
+            <li key={t.s} className="glid flex flex-col border-t-2 border-furu-mork pt-6">
               <h3 className="text-[1.75rem] font-semibold text-furu-mork sm:text-[2rem]">{t.s}</h3>
               <p className="mt-3 flex-1 text-[1.125rem]">{t.svar}</p>
               <Link href={t.href} className="mt-5 lenke">
@@ -174,7 +175,7 @@ export default function Home() {
         </div>
         <ol className="mt-12 grid gap-8 md:grid-cols-4">
           {forsteBesok.map((s, i) => (
-            <li key={s.tittel} className="relative border-t-2 border-furu-mork pt-5">
+            <li key={s.tittel} className="glid relative border-t-2 border-furu-mork pt-5">
               <span className="font-serif text-[2.5rem] font-semibold leading-none text-furu">{i + 1}</span>
               <h3 className="mt-3 text-[1.375rem] font-semibold">{s.tittel}</h3>
               <p className="mt-2">{s.tekst}</p>
@@ -201,7 +202,7 @@ export default function Home() {
         </div>
         <ul className="mt-12 grid gap-10 sm:grid-cols-3 sm:gap-6">
           {team.map((t) => (
-            <li key={t.navn}>
+            <li key={t.navn} className="glid">
               <Image
                 src={t.hoy}
                 alt=""
@@ -233,7 +234,7 @@ export default function Home() {
                     +
                   </span>
                 </summary>
-                <p className="max-w-prose pb-4">{q.svar}</p>
+                <p className="max-w-prose pb-4"><MedTall tekst={q.svar} /></p>
               </details>
             ))}
           </div>

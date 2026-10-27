@@ -1,3 +1,4 @@
+import { MedTall } from "@/components/MedTall";
 import Link from "next/link";
 import { klinikk, kortApningstider } from "@/lib/klinikk";
 import { meny } from "./Header";
@@ -11,7 +12,7 @@ export function Footer() {
           <address className="mt-3 not-italic leading-relaxed">
             {klinikk.gate}
             <br />
-            {klinikk.postnr} {klinikk.sted}
+            <MedTall tekst={`${klinikk.postnr} ${klinikk.sted}`} />
           </address>
           <p className="mt-3">
             <a href={`tel:${klinikk.telefonLenke}`} className="font-bold underline underline-offset-4">
@@ -52,7 +53,8 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-furu">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-base">
+        {/* Ekstra luft nederst på mobil, så knapperaden ikke dekker den siste linja. */}
+        <p className="mx-auto max-w-6xl px-4 py-5 text-base max-lg:pb-28">
           Demo. Navn, personer, priser og adresse er oppdiktet. Nettside av:{" "}
           <a href="https://lilitlabs.com" className="font-bold underline underline-offset-4">
             Lilit Labs

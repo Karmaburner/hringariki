@@ -40,7 +40,7 @@ export type Bilde = { src: string; alt: string; w: number; h: number };
 
 // KI-genererte bilder fra Kenneth. Ligger i public/bilder.
 export const bilder = {
-  resepsjon: { src: `${base}/bilder/resepsjon.webp`, alt: "Lys resepsjon med Hringariki-skilt på veggen, planter og varmt lys under disken.", w: 601, h: 360 },
+  resepsjon: { src: `${base}/bilder/resepsjon.webp`, alt: "Lys resepsjon med Hringariki-skilt på veggen, varmt lys under disken og lenestoler ved vinduet.", w: 1200, h: 675 },
   teamet: { src: `${base}/bilder/teamet.webp`, alt: "Ingrid, Jonas og Mira i mørkeblå arbeidsklær, smilende i gangen på klinikken.", w: 601, h: 336 },
   venterom: { src: `${base}/bilder/venterom.webp`, alt: "Rolig venterom med lenestoler, planter og et maleri av et fjellvann.", w: 427, h: 336 },
   gang: { src: `${base}/bilder/gang.webp`, alt: "Lys gang uten trapper, med nummererte dører til behandlingsrommene.", w: 367, h: 302 },

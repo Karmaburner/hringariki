@@ -41,7 +41,7 @@ export default function Home() {
     <>
       {/* Topp */}
       <section className="relative overflow-hidden">
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-12 sm:pt-16 lg:grid-cols-[1.1fr_1fr]">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-12 sm:pt-16 lg:grid-cols-[1fr_1.15fr]">
           <div>
             <ApentNa />
             <h1 className="mt-5 max-w-3xl text-[2.5rem] font-semibold text-furu-mork sm:text-[3.5rem]">
@@ -55,7 +55,7 @@ export default function Home() {
               <Knapper />
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-xl">
+          <div className="relative mx-auto w-full max-w-2xl">
             <div
               aria-hidden="true"
               className="svev absolute -right-6 -top-8 h-48 w-48 rounded-[45%_55%_60%_40%/55%_45%_55%_45%] bg-furu-lys"
@@ -71,7 +71,7 @@ export default function Home() {
               width={bilder.resepsjon.w}
               height={bilder.resepsjon.h}
               priority
-              sizes="(min-width: 1024px) 560px, 100vw"
+              sizes="(min-width: 1024px) 620px, 100vw"
               className="relative w-full rounded-[2rem] shadow-lg"
             />
           </div>

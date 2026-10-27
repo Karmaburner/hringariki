@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Atkinson_Hyperlegible, Fraunces } from "next/font/google";
 import "./globals.css";
-import { DemoStripe } from "@/components/DemoStripe";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobilKnapper } from "@/components/MobilKnapper";
@@ -80,7 +79,6 @@ export default function RootLayout({
         >
           Hopp til innholdet
         </a>
-        <DemoStripe />
         <Header />
         <main id="innhold" className="flex-1">
           {children}

@@ -55,7 +55,12 @@ export function Footer() {
       <div className="border-t border-furu">
         {/* Ekstra luft nederst på mobil, så knapperaden ikke dekker den siste linja. */}
         <p className="mx-auto max-w-6xl px-4 py-5 text-base max-lg:pb-28">
-          Demo. Navn, personer, priser og adresse er oppdiktet. Nettside av:{" "}
+          {/* Den eneste demomerkingen utenom bestillingsskjemaet, siden linja øverst er fjernet. */}
+          Demo. Navn, personer, priser og adresse er oppdiktet.{" "}
+          <Link href="/om-demoen" className="font-bold underline underline-offset-4">
+            Om demoen
+          </Link>
+          {" · "}Nettside av:{" "}
           <a href="https://lilitlabs.com" className="font-bold underline underline-offset-4">
             Lilit Labs
           </a>

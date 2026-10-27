@@ -1,6 +1,5 @@
 ﻿import Link from "next/link";
 import { klinikk } from "@/lib/klinikk";
-import { TekstStorrelse } from "./TekstStorrelse";
 import { Logo } from "./Logo";
 
 export const meny = [
@@ -41,7 +40,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 xl:flex">
-          <TekstStorrelse />
           <Link
             href="/bestill-time"
             className="whitespace-nowrap rounded-full bg-aprikos px-5 py-3 font-bold text-hvit hover:bg-aprikos-mork"
@@ -85,10 +83,6 @@ export function Header() {
             >
               Ring {klinikk.telefon}
             </a>
-            <div className="mt-4 border-t border-linje pt-4">
-              <p className="mb-2 font-bold">Tekststørrelse</p>
-              <TekstStorrelse />
-            </div>
           </div>
         </details>
       </div>

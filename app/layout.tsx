@@ -62,9 +62,6 @@ const jsonLd = {
     })),
 };
 
-// Setter valgt tekststørrelse før siden tegnes, så den ikke hopper.
-const tekstScript = `try{var t=localStorage.getItem("tekst");if(t)document.documentElement.dataset.tekst=t}catch(e){}`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -74,11 +71,7 @@ export default function RootLayout({
     <html
       lang="no"
       className={`${atkinson.variable} ${fraunces.variable} h-full antialiased`}
-      suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: tekstScript }} />
-      </head>
       <body className="min-h-full flex flex-col">
         <a
           href="#innhold"

@@ -16,6 +16,9 @@ export const klinikk = {
   url: "https://karmaburner.github.io/hringariki",
   parkering: "Gratis parkering i bakgården, to plasser for rullestol rett ved døra.",
   adkomst: "Inngang på gateplan, ingen trapper. Heis til begge behandlingsrom.",
+  // Bare for demoen: viser alltid «Åpent nå», så besøkende ser hvordan det ser ut.
+  // Sett til false på en ekte klinikkside, så vises den virkelige statusen.
+  demoAlltidApen: true,
 };
 
 export type Dag = {
@@ -254,3 +257,19 @@ export const sporsmal = [
       "Noen behandlinger gir rett til støtte, for eksempel ved sykdom i tannkjøttet. Vi sjekker for deg og trekker støtten fra regningen.",
   },
 ];
+
+// Kortversjon av åpningstidene til bunnen av siden: dager med like tider slås sammen.
+// «Man», «Tir–tor 08–18» osv. Hele tabellen står på forsiden og kontaktsiden.
+export function kortApningstider() {
+  const tid = (d: Dag) => (d.apner ? `${d.apner.slice(0, 2)}–${d.stenger!.slice(0, 2)}` : "Stengt");
+  const grupper: { fra: Dag; til: Dag; tid: string }[] = [];
+  for (const d of apningstider) {
+    const siste = grupper[grupper.length - 1];
+    if (siste && siste.tid === tid(d)) siste.til = d;
+    else grupper.push({ fra: d, til: d, tid: tid(d) });
+  }
+  return grupper.map((g) => ({
+    dager: g.fra === g.til ? g.fra.dag : `${g.fra.dag}–${g.til.dag.toLowerCase()}`,
+    tid: g.tid,
+  }));
+}

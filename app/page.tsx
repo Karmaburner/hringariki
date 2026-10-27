@@ -43,9 +43,7 @@ export default function Home() {
       <section>
         <div className="mx-auto max-w-6xl px-4 pt-12 sm:pt-20">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-            <Etikett>
-              {klinikk.slagord} · {klinikk.sted}
-            </Etikett>
+            <Etikett>{klinikk.slagord}</Etikett>
             <ApentNa />
           </div>
           <h1 className="mt-6 max-w-5xl text-[2.75rem] font-semibold leading-[1.04] tracking-[-0.02em] text-furu-mork sm:text-[4rem] lg:text-[4.5rem]">
@@ -81,12 +79,50 @@ export default function Home() {
             <li key={t.s} className="flex flex-col border-t-2 border-furu-mork pt-6">
               <h3 className="text-[1.75rem] font-semibold text-furu-mork sm:text-[2rem]">{t.s}</h3>
               <p className="mt-3 flex-1 text-[1.125rem]">{t.svar}</p>
-              <Link href={t.href} className="mt-5 font-bold text-aprikos underline underline-offset-4 hover:no-underline">
+              <Link href={t.href} className="mt-5 lenke">
                 {t.lenke}
               </Link>
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* Akutt: den eneste mørke flaten over hele bredden, så den som har vondt finner den med en gang. */}
+      <section aria-labelledby="akutt-tittel" className="mt-28 bg-furu-mork text-krem">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:py-20 md:grid-cols-[1fr_1.1fr]">
+          <Image
+            src={akuttBilde.src}
+            alt={akuttBilde.alt}
+            width={akuttBilde.w}
+            height={akuttBilde.h}
+            sizes="(min-width: 768px) 540px, 100vw"
+            className="w-full rounded-2xl"
+          />
+          <div>
+            <Etikett lys>Akutt tannpine</Etikett>
+            <h2 id="akutt-tittel" className="mt-3 text-[2.25rem] font-semibold sm:text-[3rem]">
+              Har du vondt nå?
+            </h2>
+            <p className="mt-4 max-w-prose text-[1.125rem]">
+              Ring oss før klokka ti, så prøver vi å finne en time samme dag. Målet er at du går herfra med mindre vondt enn du
+              kom.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <a
+                href={`tel:${klinikk.telefonLenke}`}
+                className="rounded-full bg-krem px-6 py-3.5 font-bold text-furu-mork hover:bg-hvit"
+              >
+                Ring {klinikk.telefon}
+              </a>
+              <Link
+                href="/behandlinger/akutt"
+                className="font-bold text-krem underline decoration-aprikos decoration-2 underline-offset-[5px] hover:decoration-krem"
+              >
+                Om akutt tannpine
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Behandlinger */}
@@ -98,39 +134,9 @@ export default function Home() {
               Hva kan vi hjelpe deg med?
             </h2>
           </div>
-          <Link href="/behandlinger" className="font-bold text-furu-mork underline underline-offset-4">
+          <Link href="/behandlinger" className="lenke">
             Alle behandlinger
           </Link>
-        </div>
-
-        {/* Akutt får egen flate: den som har vondt nå, skal finne det først. */}
-        <div className="mt-10 grid overflow-hidden rounded-2xl bg-aprikos-lys md:grid-cols-[1fr_1.1fr]">
-          <Image
-            src={akuttBilde.src}
-            alt={akuttBilde.alt}
-            width={akuttBilde.w}
-            height={akuttBilde.h}
-            sizes="(min-width: 768px) 540px, 100vw"
-            className="h-full w-full object-cover max-md:aspect-[3/2]"
-          />
-          <div className="p-7 sm:p-10">
-            <h3 className="text-[1.75rem] font-semibold text-furu-mork sm:text-[2rem]">Har du vondt nå?</h3>
-            <p className="mt-3 max-w-prose text-[1.125rem]">
-              Ring oss før klokka ti, så prøver vi å finne en time samme dag. Målet er at du går herfra med mindre vondt enn du
-              kom.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <a
-                href={`tel:${klinikk.telefonLenke}`}
-                className="rounded-full bg-aprikos px-6 py-3.5 font-bold text-hvit hover:bg-aprikos-mork"
-              >
-                Ring {klinikk.telefon}
-              </a>
-              <Link href="/behandlinger/akutt" className="font-bold text-furu-mork underline underline-offset-4">
-                Om akutt tannpine
-              </Link>
-            </div>
-          </div>
         </div>
 
         {/* Nummererte rader med tynne linjer. Beskrivelsen blir stående, den beroliger. */}
@@ -189,7 +195,7 @@ export default function Home() {
         <ol className="mt-12 grid gap-8 md:grid-cols-4">
           {forsteBesok.map((s, i) => (
             <li key={s.tittel} className="relative border-t-2 border-furu-mork pt-5">
-              <span className="font-serif text-[2.5rem] font-semibold leading-none text-aprikos">{i + 1}</span>
+              <span className="font-serif text-[2.5rem] font-semibold leading-none text-furu">{i + 1}</span>
               <h3 className="mt-3 text-[1.375rem] font-semibold">{s.tittel}</h3>
               <p className="mt-2">{s.tekst}</p>
             </li>
@@ -208,7 +214,7 @@ export default function Home() {
           </div>
           <p className="max-w-prose text-[1.125rem]">
             Tre personer, ingen vikarer. Vi husker hva du sa sist, så du slipper å forklare alt på nytt.{" "}
-            <Link href="/tannlegene" className="font-bold text-aprikos underline underline-offset-4 hover:no-underline">
+            <Link href="/tannlegene" className="lenke">
               Bli kjent med oss
             </Link>
           </p>
@@ -243,7 +249,7 @@ export default function Home() {
               <details key={q.s} className="group py-2">
                 <summary className="flex items-start justify-between gap-4 rounded-lg py-3 text-[1.125rem] font-bold">
                   {q.s}
-                  <span aria-hidden="true" className="pil mt-0.5 text-[1.5rem] leading-none text-aprikos transition-transform">
+                  <span aria-hidden="true" className="pil mt-0.5 text-[1.5rem] leading-none text-furu transition-transform">
                     +
                   </span>
                 </summary>

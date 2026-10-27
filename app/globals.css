@@ -17,16 +17,10 @@
   --font-serif: var(--font-fraunces), Georgia, serif;
 }
 
-/* Tekststørrelse styres av knappene A A A. Alt annet bruker rem og følger med. */
+/* 100 % og rem overalt: siden følger nettleserens tekststørrelse og zoom. */
 html {
   font-size: 100%;
   scroll-behavior: smooth;
-}
-html[data-tekst="stor"] {
-  font-size: 112.5%;
-}
-html[data-tekst="storst"] {
-  font-size: 125%;
 }
 
 body {
@@ -35,6 +29,26 @@ body {
   font-family: var(--font-sans);
   font-size: 1.0625rem;
   line-height: 1.6;
+}
+
+/* Fargeroller:
+   krem: bakgrunn. hvit: bare skjemafelt.
+   furu-mork: overskrifter, tekst, akuttflaten og bunnen.
+   furu: etiketter og linjer. furu-lys: valgt og hover, rolige beskjeder.
+   aprikos: knapper som skal trykkes, ellers bare små aksenter (understrek, piler).
+   aprikos-lys: bare der det handler om å grue seg. */
+
+/* Tekstlenke: mørk tekst med aprikos understrek, så aprikos ikke blir tekstfarge. */
+@utility lenke {
+  font-weight: 700;
+  color: var(--color-furu-mork);
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-aprikos);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  &:hover {
+    text-decoration-color: var(--color-furu-mork);
+  }
 }
 
 /* Priser og klokkeslett. Atkinson har strek gjennom null, og i fet skrift

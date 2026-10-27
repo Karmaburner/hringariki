@@ -28,13 +28,18 @@ export function Etikett({
   children,
   som: Tag = "p",
   id,
+  lys = false,
 }: {
   children: React.ReactNode;
   som?: "p" | "h2";
   id?: string;
+  lys?: boolean;
 }) {
   return (
-    <Tag id={id} className="font-sans text-[0.9375rem] font-bold uppercase leading-snug tracking-[0.14em] text-furu">
+    <Tag
+      id={id}
+      className={`font-sans text-[0.9375rem] font-bold uppercase leading-snug tracking-[0.14em] ${lys ? "text-furu-lys" : "text-furu"}`}
+    >
       {children}
     </Tag>
   );
@@ -42,16 +47,22 @@ export function Etikett({
 
 export function Avslutning() {
   return (
-    <section className="mx-auto mt-24 max-w-6xl px-4">
-      <div className="rounded-[2rem] bg-furu px-6 py-12 text-krem sm:px-12">
-        <h2 className="max-w-2xl text-[2rem] font-semibold sm:text-[2.5rem]">
-          Første steg er bare en prat
-        </h2>
-        <p className="mt-4 max-w-prose text-[1.125rem]">
-          Bestill en undersøkelse, eller ring og spør om det du lurer på. Du forplikter deg ikke til noe.
-        </p>
-        <div className="mt-8">
-          <Knapper lys />
+    // Åpen avslutning med en linje over, ikke en farget boks rett over den mørke bunnen.
+    <section className="mx-auto mt-28 max-w-6xl px-4">
+      <div className="grid gap-8 border-t-2 border-furu-mork pt-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+        <div>
+          <Etikett>Neste steg</Etikett>
+          <h2 className="mt-3 max-w-2xl text-[2.25rem] font-semibold text-furu-mork sm:text-[3rem]">
+            Første steg er bare en prat
+          </h2>
+        </div>
+        <div>
+          <p className="max-w-prose text-[1.125rem]">
+            Bestill en undersøkelse, eller ring og spør om det du lurer på. Du forplikter deg ikke til noe.
+          </p>
+          <div className="mt-6">
+            <Knapper />
+          </div>
         </div>
       </div>
     </section>

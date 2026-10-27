@@ -33,7 +33,8 @@ const punkter = [
   },
   {
     tittel: "Åpent nå",
-    tekst: "Siden viser om klinikken er åpen akkurat nå, ut fra de samme tidene.",
+    tekst:
+      "Siden viser om klinikken er åpen akkurat nå, ut fra de samme tidene. I demoen står den alltid som åpen, så du ser hvordan det ser ut.",
     href: "/kontakt",
   },
   {
@@ -45,7 +46,7 @@ const punkter = [
   {
     tittel: "Lett å lese for alle",
     tekst:
-      "Tydelig skrift, høy kontrast, knapper for større tekst og full tastaturstøtte. Det er lovkrav for nettsider i Norge, og det hjelper eldre pasienter.",
+      "Tydelig skrift, høy kontrast og full tastaturstøtte. Siden tåler 200 % zoom og stor tekst uten at noe går i stykker, og en egen side viser hvordan man gjør teksten større. Det er lovkrav for nettsider i Norge, og det hjelper eldre pasienter.",
     href: "/",
   },
   {
@@ -78,7 +79,7 @@ export default function OmDemoen() {
             <li key={p.tittel} className="flex flex-col rounded-3xl bg-hvit p-7">
               <h3 className="text-[1.375rem] font-semibold">{p.tittel}</h3>
               <p className="mt-2 flex-1">{p.tekst}</p>
-              <Link href={p.href} className="mt-4 font-bold text-aprikos underline underline-offset-4 hover:no-underline">
+              <Link href={p.href} className="mt-4 lenke">
                 Se det på siden
               </Link>
             </li>

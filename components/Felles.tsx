@@ -43,14 +43,14 @@ export function Avslutning() {
 
 export function Portrett({ t, stor = false }: { t: Tannlege; stor?: boolean }) {
   // Navnet står rett ved siden av, så bildet får tom alt-tekst.
-  const px = stor ? 160 : 96;
+  const px = stor ? 160 : 128;
   return (
     <Image
       src={t.portrett}
       alt=""
       width={px}
       height={px}
-      className={`rounded-[40%_60%_55%_45%/50%_45%_55%_50%] object-cover ${stor ? "h-40 w-40" : "h-24 w-24"}`}
+      className={`rounded-[40%_60%_55%_45%/50%_45%_55%_50%] object-cover ${stor ? "h-40 w-40" : "h-32 w-32"}`}
       style={{ background: t.farge }}
     />
   );

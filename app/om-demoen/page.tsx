@@ -38,7 +38,8 @@ const punkter = [
   },
   {
     tittel: "Bestilling med «Jeg gruer meg»",
-    tekst: "Ett kryss, så vet klinikken det før pasienten kommer. Pasienten slipper å si det høyt i resepsjonen.",
+    tekst:
+      "Ett kryss, så vet klinikken det før pasienten kommer. Pasienten slipper å si det høyt i resepsjonen. På en ekte side kan bestillingen kobles til journalsystemet, for eksempel Opus Dental, så pasienten velger ledig tid selv.",
     href: "/bestill-time",
   },
   {

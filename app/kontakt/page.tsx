@@ -58,7 +58,7 @@ export default function Kontakt() {
             <h2 className="text-[1.75rem] font-semibold text-furu-mork">Åpningstider</h2>
             <Apningstider />
             <p className="mt-6 max-w-prose">
-              Disse tidene står bare ett sted i koden. Endres de, endres de på alle sider og for Google samtidig.
+              Akutt tannpine? Ring før klokka ti, så prøver vi å finne en time samme dag.
             </p>
           </section>
         </div>

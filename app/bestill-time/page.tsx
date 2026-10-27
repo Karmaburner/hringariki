@@ -21,12 +21,16 @@ export default function BestillTime() {
           </a>
           .
         </p>
-        <div className="mt-10">
+        <p
+          role="note"
+          className="mt-8 max-w-prose rounded-2xl border-2 border-furu bg-furu-lys p-5 text-[1.0625rem]"
+        >
+          <strong>Dette er et demoskjema.</strong> Ingenting sendes eller lagres. Ikke skriv inn ekte navn, telefonnummer
+          eller helseopplysninger.
+        </p>
+        <div className="mt-6">
           <Skjema />
         </div>
-        <p className="mt-6 max-w-prose text-dempet">
-          En ekte klinikk kobler ofte dette til journalsystemet sitt, for eksempel Opus Dental, så du kan velge ledig tid selv.
-        </p>
       </div>
     </>
   );

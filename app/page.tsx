@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { behandlinger, bilder, klinikk, sporsmal, team } from "@/lib/klinikk";
+import { behandlinger, behandlingsbilder, bilder, klinikk, sporsmal, team } from "@/lib/klinikk";
+
+const vanlige = behandlinger.filter((b) => b.slug !== "akutt");
+const akuttBilde = behandlingsbilder.akutt;
 import { ApentNa } from "@/components/ApentNa";
 import { Apningstider } from "@/components/Apningstider";
 import { Avslutning, Knapper, Portrett } from "@/components/Felles";
@@ -108,8 +111,38 @@ export default function Home() {
             Alle behandlinger
           </Link>
         </div>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {behandlinger.map((b) => (
+        {/* Akutt får egen flate: den som har vondt nå, skal finne det først. */}
+        <div className="mt-8 grid overflow-hidden rounded-[2rem] bg-aprikos-lys md:grid-cols-[1fr_1.1fr]">
+          <Image
+            src={akuttBilde.src}
+            alt={akuttBilde.alt}
+            width={akuttBilde.w}
+            height={akuttBilde.h}
+            sizes="(min-width: 768px) 540px, 100vw"
+            className="h-full w-full object-cover max-md:aspect-[3/2]"
+          />
+          <div className="p-7 sm:p-10">
+            <h3 className="text-[1.75rem] font-semibold text-furu-mork sm:text-[2rem]">Har du vondt nå?</h3>
+            <p className="mt-3 max-w-prose text-[1.125rem]">
+              Ring oss før klokka ti, så prøver vi å finne en time samme dag. Målet er at du går herfra med mindre vondt enn du
+              kom.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href={`tel:${klinikk.telefonLenke}`}
+                className="rounded-full bg-aprikos px-6 py-3.5 font-bold text-hvit hover:bg-aprikos-mork"
+              >
+                Ring {klinikk.telefon}
+              </a>
+              <Link href="/behandlinger/akutt" className="font-bold text-furu-mork underline underline-offset-4">
+                Om akutt tannpine
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {vanlige.map((b) => (
             <li key={b.slug}>
               <Link
                 href={`/behandlinger/${b.slug}`}
@@ -126,6 +159,18 @@ export default function Home() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link
+              href="/priser"
+              className="group flex h-full flex-col justify-between rounded-3xl bg-furu p-7 text-krem hover:bg-furu-mork"
+            >
+              <span className="font-serif text-[1.5rem] font-semibold">Alle priser</span>
+              <span className="mt-2">Røntgen, tannrens, barn og avbestilling. Alt står åpent.</span>
+              <span aria-hidden="true" className="mt-5 text-[1.5rem] transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
+          </li>
         </ul>
       </section>
 

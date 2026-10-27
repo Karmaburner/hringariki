@@ -236,16 +236,7 @@ export const sporsmal = [
     svar:
       "Nei. Det er vanlig, og vi hører det hver uke. Vi starter med en prat og en undersøkelse, og lager en plan i ditt tempo.",
   },
-  {
-    s: "Kan jeg få vite prisen før dere begynner?",
-    svar:
-      "Ja, alltid. Etter undersøkelsen får du en skriftlig plan med pris. Ingenting gjøres før du har sagt ja.",
-  },
-  {
-    s: "Hva om jeg må stoppe midt i behandlingen?",
-    svar:
-      "Vi avtaler et tegn før vi starter, som å løfte hånda. Da stopper vi med en gang, uten diskusjon.",
-  },
+  // «Pris før vi begynner» og «stopptegn» er tatt bort her. De står allerede i de tre spørsmålene øverst.
   {
     s: "Hvordan avbestiller jeg?",
     svar:

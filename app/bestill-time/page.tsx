@@ -13,9 +13,9 @@ export default function BestillTime() {
     <>
       <Sti deler={[{ tekst: "Bestill time" }]} />
       <div className="mx-auto max-w-3xl px-4 pt-10">
-        <SideTopp etikett="Bestill time" tittel="Vi ringer deg tilbake">
+        <SideTopp etikett="Bestill time" tittel="Bestill en time">
           <p>
-            Fyll inn, så ringer vi deg innen neste arbeidsdag. Har du vondt nå, er det raskere å ringe{" "}
+            Skriv hva det gjelder og når det passer, så tar klinikken kontakt. Har du vondt nå, er det raskere å ringe{" "}
             <a href={`tel:${klinikk.telefonLenke}`} className="lenke">
               {klinikk.telefon}
             </a>
@@ -23,8 +23,8 @@ export default function BestillTime() {
           </p>
         </SideTopp>
         <p role="note" className="mt-10 max-w-prose border-l-2 border-furu pl-5 text-[1.0625rem]">
-          <strong>Dette er et demoskjema.</strong> Ingenting sendes eller lagres. Ikke skriv inn ekte navn, telefonnummer eller
-          helseopplysninger.
+          <strong>Dette er et demoskjema.</strong> Ingenting sendes eller lagres, og ingen ringer deg. Ikke skriv inn ekte navn,
+          telefonnummer eller helseopplysninger.
         </p>
         <div className="mt-8">
           <Skjema />

@@ -23,7 +23,7 @@ export function Skjema() {
   if (sendt) {
     return (
       <div role="status" className="rounded-2xl bg-furu-lys p-7 sm:p-10">
-        <h2 className="text-[1.75rem] font-semibold text-furu-mork">Takk, vi ringer deg</h2>
+        <h2 className="text-[1.75rem] font-semibold text-furu-mork">Takk, det var alt</h2>
         <p className="mt-3 max-w-prose text-[1.125rem]">
           På en ekte side ville klinikken fått beskjed nå, og du ville fått en SMS med tidspunkt. Dette er en demo, så ingenting
           ble sendt.

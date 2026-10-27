@@ -34,8 +34,8 @@ const tryggeSvar = [
 const forsteBesok = [
   { tittel: "Du bestiller", tekst: "På nett eller telefon. Skriv gjerne at du gruer deg, så setter vi av mer tid." },
   { tittel: "Vi tar en prat", tekst: "Før du setter deg i stolen. Du forteller, vi lytter." },
-  { tittel: "Undersøkelse", tekst: "Vi ser, forklarer hva vi gjør underveis og tar bilder ved behov." },
-  { tittel: "Du får en plan", tekst: "Skriftlig, med pris. Du tar den med hjem og bestemmer selv." },
+  { tittel: "Undersøkelse", tekst: "Vi ser på tenner og tannkjøtt, og tar bilder ved behov." },
+  { tittel: "Du får en plan", tekst: "Skriftlig, med pris. Du tar den med hjem." },
 ];
 
 export default function Home() {
@@ -200,21 +200,25 @@ export default function Home() {
             </Link>
           </p>
         </div>
-        <ul className="mt-12 grid gap-10 sm:grid-cols-3 sm:gap-6">
+        {/* Mobil: under hverandre. 640–767 px: én rad per person med bilde til venstre.
+            Fra 768 px: tre kolonner. Slik står ingen alene i en halvtom rad. */}
+        <ul className="mt-12 grid gap-10 md:grid-cols-3 md:gap-6">
           {team.map((t) => (
-            <li key={t.navn} className="glid">
+            <li key={t.navn} className="glid sm:grid sm:grid-cols-[14rem_1fr] sm:items-center sm:gap-8 md:block">
               <Image
                 src={t.hoy}
                 alt=""
                 width={800}
                 height={1000}
-                sizes="(min-width: 640px) 360px, 100vw"
+                sizes="(min-width: 768px) 360px, (min-width: 640px) 224px, 100vw"
                 className="aspect-[4/5] w-full rounded-2xl object-cover"
                 style={{ background: t.farge }}
               />
-              <h3 className="mt-5 text-[1.75rem] font-semibold text-furu-mork">{t.navn}</h3>
-              <p className="text-dempet">{t.rolle}</p>
-              <p className="mt-3 border-l-2 border-aprikos pl-4 font-serif text-[1.25rem] leading-snug">«{t.sitat}»</p>
+              <div>
+                <h3 className="mt-5 text-[1.75rem] font-semibold text-furu-mork sm:mt-0 md:mt-5">{t.navn}</h3>
+                <p className="text-dempet">{t.rolle}</p>
+                <p className="mt-3 border-l-2 border-aprikos pl-4 font-serif text-[1.25rem] leading-snug">«{t.sitat}»</p>
+              </div>
             </li>
           ))}
         </ul>

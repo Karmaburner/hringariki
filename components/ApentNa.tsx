@@ -3,19 +3,31 @@
 import { useSyncExternalStore } from "react";
 import { apningstider, klinikk } from "@/lib/klinikk";
 
+// Dag og klokkeslett i norsk tid, uansett hvor besøkeren er. Mandag er 0.
+function osloNa() {
+  const deler = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Oslo",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(new Date());
+  const hent = (t: string) => deler.find((d) => d.type === t)?.value ?? "";
+  const dag = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].indexOf(hent("weekday"));
+  return { dag, min: Number(hent("hour")) * 60 + Number(hent("minute")) };
+}
+
 // I demoen: dagens stengetid, eller den vanligste stengetiden på dager klinikken har stengt.
 function demoStatus() {
-  const idag = apningstider[(new Date().getDay() + 6) % 7];
+  const idag = apningstider[osloNa().dag];
   return `apen|${idag.stenger ?? "18:00"}`;
 }
 
 // Viser om klinikken er åpen akkurat nå, ut fra samme åpningstider som resten av siden.
 function status() {
   if (klinikk.demoAlltidApen) return demoStatus();
-  const na = new Date();
-  // getDay(): 0 er søndag. Lista starter på mandag.
-  const idag = apningstider[(na.getDay() + 6) % 7];
-  const min = na.getHours() * 60 + na.getMinutes();
+  const { dag, min } = osloNa();
+  const idag = apningstider[dag];
   const tilMin = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3));
   if (idag.apner && idag.stenger && min >= tilMin(idag.apner) && min < tilMin(idag.stenger)) {
     return `apen|${idag.stenger}`;

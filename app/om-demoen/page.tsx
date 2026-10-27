@@ -8,28 +8,30 @@ export const metadata: Metadata = {
   description: "Hva Lilit Labs kan lage for en tannklinikk, og hvorfor siden er bygd slik den er.",
 };
 
+// Skrevet ut fra hva klinikken får, ikke hvordan det er bygd. Ingen løfter om plassering i Google.
 const punkter = [
   {
-    tittel: "Svar på det folk gruer seg til",
+    tittel: "Flere tør å ta kontakt",
     tekst:
-      "Toppen av forsiden svarer på tre spørsmål: gjør det vondt, hva koster det og hva skjer første gang. Det er det engstelige pasienter lurer på før de tør å bestille.",
+      "Toppen av forsiden svarer på det engstelige pasienter lurer på før de bestiller: gjør det vondt, hva koster det og hva skjer første gang.",
     href: "/",
   },
   {
-    tittel: "Én side per behandling",
+    tittel: "Svar før de ringer",
     tekst:
-      "Folk søker på «rotfylling pris» eller «tannbleking» og stedsnavnet. En egen side per behandling gir Google noe å vise for hvert av de søkene.",
+      "Hver behandling har sin egen side med pris, tid og hvordan den foregår. Pasienten får svarene selv, og den som søker etter en bestemt behandling, lander på riktig side.",
     href: "/behandlinger/rotfylling",
   },
   {
-    tittel: "Tannlegeskrekk som eget tema",
-    tekst: "Mange klinikker er gode med engstelige pasienter, men sier det bare i en bisetning. Her har det en egen side.",
+    tittel: "Et sted for dem som gruer seg",
+    tekst:
+      "Mange klinikker er gode med engstelige pasienter, men sier det bare i en bisetning. Her har det en egen side med konkrete grep.",
     href: "/tannlegeskrekk",
   },
   {
-    tittel: "Åpningstider ett sted",
+    tittel: "Riktige åpningstider overalt",
     tekst:
-      "Tidene ligger ett sted i koden og brukes på forsiden, i bunnen, på kontaktsiden og i dataene Google leser. De kan ikke sprike mellom sidene.",
+      "Tidene skrives inn ett sted og vises likt på alle sider og i opplysningene søkemotorene leser. Pasienten får ikke tre ulike svar.",
     href: "/kontakt",
   },
   {
@@ -39,20 +41,21 @@ const punkter = [
     href: "/kontakt",
   },
   {
-    tittel: "Bestilling med «Jeg gruer meg»",
+    tittel: "Klinikken vet det på forhånd",
     tekst:
-      "Ett kryss, så vet klinikken det før pasienten kommer. Pasienten slipper å si det høyt i resepsjonen. På en ekte side kan bestillingen kobles til journalsystemet, for eksempel Opus Dental, så pasienten velger ledig tid selv.",
+      "Med ett kryss for «Jeg gruer meg» slipper pasienten å si det høyt i resepsjonen. Bestillingen kan kobles til journalsystemet, for eksempel Opus Dental, så pasienten velger ledig tid selv.",
     href: "/bestill-time",
   },
   {
-    tittel: "Lett å lese for alle",
+    tittel: "Lett å lese, også for eldre",
     tekst:
-      "Tydelig skrift, høy kontrast og full tastaturstøtte. Siden tåler 200 % zoom og stor tekst uten at noe går i stykker, og en egen side viser hvordan man gjør teksten større. Det er lovkrav for nettsider i Norge, og det hjelper eldre pasienter.",
+      "Tydelig skrift, god kontrast og tastaturstøtte. Siden er sjekket med stor tekst og 200 % zoom, og en egen side forklarer hvordan man gjør teksten større.",
     href: "/storre-tekst",
   },
   {
-    tittel: "Rask på mobil",
-    tekst: "De fleste leter etter tannlege på telefonen. Siden er bygd for mobil først og laster uten tunge bilder.",
+    tittel: "Laget for telefonen",
+    tekst:
+      "De fleste leter etter tannlege på mobilen. Siden er bygd for mobil først, og knappene for å ringe og bestille ligger alltid nederst på skjermen.",
     href: "/",
   },
 ];
